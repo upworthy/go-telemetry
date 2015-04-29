@@ -19,7 +19,7 @@ func (*discardMetrics) Value(value interface{}, name string, props ...interface{
 func (*discardMetrics) Count(value int, name string, props ...interface{})         {}
 
 // Discard discards telemetry data.
-var Discard = &discardMetrics{}
+var Discard Metrics = &discardMetrics{}
 
 type logMetrics struct{}
 
@@ -51,4 +51,4 @@ func (*logMetrics) Count(value int, name string, props ...interface{}) {
 //
 //     LogMetrics.Count(33, "beans")  // prints `APP_METRIC {"stat": "beans", "count": 33}`
 //     LogMetrics.Value(36.6, "temp") // prints `APP_METRIC {"stat": "temp", "value": 36.6}`
-var LogMetrics = &logMetrics{}
+var LogMetrics Metrics = &logMetrics{}
